@@ -1,0 +1,1321 @@
+diff --git a/Firebase-Tutorial-Swift-Info.plist b/Firebase-Tutorial-Swift-Info.plist
+new file mode 100644
+index 0000000..10d5478
+--- /dev/null
++++ b/Firebase-Tutorial-Swift-Info.plist
+@@ -0,0 +1,21 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
++<plist version="1.0">
++<dict>
++	<key>CFBundleURLTypes</key>
++	<array>
++		<dict>
++			<key>CFBundleTypeRole</key>
++			<string>None</string>
++			<key>CFBundleURLName</key>
++			<string>Google Sign In</string>
++			<key>CFBundleURLSchemes</key>
++			<array>
++				<string>com.googleusercontent.apps.372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0</string>
++			</array>
++		</dict>
++	</array>
++	<key>GIDClientID</key>
++	<string>372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0.apps.googleusercontent.com</string>
++</dict>
++</plist>
+diff --git a/Firebase_Tutorial_Swift.xcodeproj/project.pbxproj b/Firebase_Tutorial_Swift.xcodeproj/project.pbxproj
+index e873312..854ccfa 100644
+--- a/Firebase_Tutorial_Swift.xcodeproj/project.pbxproj
++++ b/Firebase_Tutorial_Swift.xcodeproj/project.pbxproj
+@@ -7,18 +7,45 @@
+ 	objects = {
+ 
+ /* Begin PBXBuildFile section */
++		AC8146832C94A88C00514A30 /* SignInAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8146822C94A88C00514A30 /* SignInAppleHelper.swift */; };
+ 		ACE8EFFA2C91BE8B006E1755 /* Firebase_Tutorial_SwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8EFF92C91BE8B006E1755 /* Firebase_Tutorial_SwiftApp.swift */; };
+ 		ACE8EFFC2C91BE8B006E1755 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8EFFB2C91BE8B006E1755 /* ContentView.swift */; };
+ 		ACE8EFFE2C91BE8C006E1755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE8EFFD2C91BE8C006E1755 /* Assets.xcassets */; };
+ 		ACE8F0012C91BE8C006E1755 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE8F0002C91BE8C006E1755 /* Preview Assets.xcassets */; };
++		ACE8F00B2C91C165006E1755 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = ACE8F00A2C91C165006E1755 /* FirebaseAnalytics */; };
++		ACE8F00D2C91C165006E1755 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = ACE8F00C2C91C165006E1755 /* FirebaseAnalyticsOnDeviceConversion */; };
++		ACE8F0102C91C42C006E1755 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = ACE8F00F2C91C42C006E1755 /* FirebaseAuth */; };
++		ACE8F0122C91C49B006E1755 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8F0112C91C49B006E1755 /* AuthenticationView.swift */; };
++		ACE8F0142C91C545006E1755 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8F0132C91C545006E1755 /* SignInEmailView.swift */; };
++		ACE8F0162C91C764006E1755 /* AuthenticaionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8F0152C91C764006E1755 /* AuthenticaionManager.swift */; };
++		ACE8F0182C91CECF006E1755 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8F0172C91CECF006E1755 /* RootView.swift */; };
++		ACE8F01A2C91D236006E1755 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8F0192C91D236006E1755 /* SettingsView.swift */; };
++		ACE8F01D2C9264CA006E1755 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = ACE8F01C2C9264CA006E1755 /* GoogleSignIn */; };
++		ACE8F01F2C9264CA006E1755 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = ACE8F01E2C9264CA006E1755 /* GoogleSignInSwift */; };
++		ACE8F0222C926569006E1755 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACE8F0212C926569006E1755 /* GoogleService-Info.plist */; };
++		ACE8F0242C93B46E006E1755 /* client_372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0.apps.googleusercontent.com.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACE8F0232C93B46E006E1755 /* client_372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0.apps.googleusercontent.com.plist */; };
++		ACE8F0272C93B712006E1755 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8F0262C93B712006E1755 /* Utilities.swift */; };
++		ACE8F0292C93CE76006E1755 /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE8F0282C93CE76006E1755 /* SignInGoogleHelper.swift */; };
+ /* End PBXBuildFile section */
+ 
+ /* Begin PBXFileReference section */
++		AC8146822C94A88C00514A30 /* SignInAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleHelper.swift; sourceTree = "<group>"; };
+ 		ACE8EFF62C91BE8B006E1755 /* Firebase_Tutorial_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Firebase_Tutorial_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		ACE8EFF92C91BE8B006E1755 /* Firebase_Tutorial_SwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase_Tutorial_SwiftApp.swift; sourceTree = "<group>"; };
+ 		ACE8EFFB2C91BE8B006E1755 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+ 		ACE8EFFD2C91BE8C006E1755 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+ 		ACE8F0002C91BE8C006E1755 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
++		ACE8F0112C91C49B006E1755 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
++		ACE8F0132C91C545006E1755 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
++		ACE8F0152C91C764006E1755 /* AuthenticaionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticaionManager.swift; sourceTree = "<group>"; };
++		ACE8F0172C91CECF006E1755 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
++		ACE8F0192C91D236006E1755 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
++		ACE8F0202C926508006E1755 /* Firebase-Tutorial-Swift-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Firebase-Tutorial-Swift-Info.plist"; sourceTree = SOURCE_ROOT; };
++		ACE8F0212C926569006E1755 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
++		ACE8F0232C93B46E006E1755 /* client_372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0.apps.googleusercontent.com.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "client_372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0.apps.googleusercontent.com.plist"; sourceTree = "<group>"; };
++		ACE8F0262C93B712006E1755 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
++		ACE8F0282C93CE76006E1755 /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
++		ACE8F02A2C94638A006E1755 /* Firebase_Tutorial_Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Firebase_Tutorial_Swift.entitlements; sourceTree = "<group>"; };
+ /* End PBXFileReference section */
+ 
+ /* Begin PBXFrameworksBuildPhase section */
+@@ -26,6 +53,11 @@
+ 			isa = PBXFrameworksBuildPhase;
+ 			buildActionMask = 2147483647;
+ 			files = (
++				ACE8F01F2C9264CA006E1755 /* GoogleSignInSwift in Frameworks */,
++				ACE8F00B2C91C165006E1755 /* FirebaseAnalytics in Frameworks */,
++				ACE8F01D2C9264CA006E1755 /* GoogleSignIn in Frameworks */,
++				ACE8F0102C91C42C006E1755 /* FirebaseAuth in Frameworks */,
++				ACE8F00D2C91C165006E1755 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+@@ -37,6 +69,7 @@
+ 			children = (
+ 				ACE8EFF82C91BE8B006E1755 /* Firebase_Tutorial_Swift */,
+ 				ACE8EFF72C91BE8B006E1755 /* Products */,
++				ACE8F00E2C91C42C006E1755 /* Frameworks */,
+ 			);
+ 			sourceTree = "<group>";
+ 		};
+@@ -51,8 +84,19 @@
+ 		ACE8EFF82C91BE8B006E1755 /* Firebase_Tutorial_Swift */ = {
+ 			isa = PBXGroup;
+ 			children = (
++				ACE8F02A2C94638A006E1755 /* Firebase_Tutorial_Swift.entitlements */,
++				ACE8F0202C926508006E1755 /* Firebase-Tutorial-Swift-Info.plist */,
++				ACE8F0212C926569006E1755 /* GoogleService-Info.plist */,
++				ACE8F0232C93B46E006E1755 /* client_372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0.apps.googleusercontent.com.plist */,
+ 				ACE8EFF92C91BE8B006E1755 /* Firebase_Tutorial_SwiftApp.swift */,
+ 				ACE8EFFB2C91BE8B006E1755 /* ContentView.swift */,
++				ACE8F0112C91C49B006E1755 /* AuthenticationView.swift */,
++				ACE8F0282C93CE76006E1755 /* SignInGoogleHelper.swift */,
++				ACE8F0252C93B705006E1755 /* Utilities */,
++				ACE8F0132C91C545006E1755 /* SignInEmailView.swift */,
++				ACE8F0172C91CECF006E1755 /* RootView.swift */,
++				ACE8F0192C91D236006E1755 /* SettingsView.swift */,
++				ACE8F0152C91C764006E1755 /* AuthenticaionManager.swift */,
+ 				ACE8EFFD2C91BE8C006E1755 /* Assets.xcassets */,
+ 				ACE8EFFF2C91BE8C006E1755 /* Preview Content */,
+ 			);
+@@ -67,6 +111,22 @@
+ 			path = "Preview Content";
+ 			sourceTree = "<group>";
+ 		};
++		ACE8F00E2C91C42C006E1755 /* Frameworks */ = {
++			isa = PBXGroup;
++			children = (
++			);
++			name = Frameworks;
++			sourceTree = "<group>";
++		};
++		ACE8F0252C93B705006E1755 /* Utilities */ = {
++			isa = PBXGroup;
++			children = (
++				ACE8F0262C93B712006E1755 /* Utilities.swift */,
++				AC8146822C94A88C00514A30 /* SignInAppleHelper.swift */,
++			);
++			path = Utilities;
++			sourceTree = "<group>";
++		};
+ /* End PBXGroup section */
+ 
+ /* Begin PBXNativeTarget section */
+@@ -83,6 +143,13 @@
+ 			dependencies = (
+ 			);
+ 			name = Firebase_Tutorial_Swift;
++			packageProductDependencies = (
++				ACE8F00A2C91C165006E1755 /* FirebaseAnalytics */,
++				ACE8F00C2C91C165006E1755 /* FirebaseAnalyticsOnDeviceConversion */,
++				ACE8F00F2C91C42C006E1755 /* FirebaseAuth */,
++				ACE8F01C2C9264CA006E1755 /* GoogleSignIn */,
++				ACE8F01E2C9264CA006E1755 /* GoogleSignInSwift */,
++			);
+ 			productName = Firebase_Tutorial_Swift;
+ 			productReference = ACE8EFF62C91BE8B006E1755 /* Firebase_Tutorial_Swift.app */;
+ 			productType = "com.apple.product-type.application";
+@@ -111,6 +178,10 @@
+ 				Base,
+ 			);
+ 			mainGroup = ACE8EFED2C91BE8B006E1755;
++			packageReferences = (
++				ACE8F0092C91C165006E1755 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
++				ACE8F01B2C9264CA006E1755 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
++			);
+ 			productRefGroup = ACE8EFF72C91BE8B006E1755 /* Products */;
+ 			projectDirPath = "";
+ 			projectRoot = "";
+@@ -126,6 +197,8 @@
+ 			buildActionMask = 2147483647;
+ 			files = (
+ 				ACE8F0012C91BE8C006E1755 /* Preview Assets.xcassets in Resources */,
++				ACE8F0222C926569006E1755 /* GoogleService-Info.plist in Resources */,
++				ACE8F0242C93B46E006E1755 /* client_372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0.apps.googleusercontent.com.plist in Resources */,
+ 				ACE8EFFE2C91BE8C006E1755 /* Assets.xcassets in Resources */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+@@ -137,8 +210,16 @@
+ 			isa = PBXSourcesBuildPhase;
+ 			buildActionMask = 2147483647;
+ 			files = (
++				ACE8F01A2C91D236006E1755 /* SettingsView.swift in Sources */,
+ 				ACE8EFFC2C91BE8B006E1755 /* ContentView.swift in Sources */,
+ 				ACE8EFFA2C91BE8B006E1755 /* Firebase_Tutorial_SwiftApp.swift in Sources */,
++				ACE8F0182C91CECF006E1755 /* RootView.swift in Sources */,
++				ACE8F0292C93CE76006E1755 /* SignInGoogleHelper.swift in Sources */,
++				ACE8F0122C91C49B006E1755 /* AuthenticationView.swift in Sources */,
++				ACE8F0162C91C764006E1755 /* AuthenticaionManager.swift in Sources */,
++				ACE8F0272C93B712006E1755 /* Utilities.swift in Sources */,
++				AC8146832C94A88C00514A30 /* SignInAppleHelper.swift in Sources */,
++				ACE8F0142C91C545006E1755 /* SignInEmailView.swift in Sources */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+@@ -269,12 +350,14 @@
+ 			buildSettings = {
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
++				CODE_SIGN_ENTITLEMENTS = Firebase_Tutorial_Swift/Firebase_Tutorial_Swift.entitlements;
+ 				CODE_SIGN_STYLE = Automatic;
+ 				CURRENT_PROJECT_VERSION = 1;
+ 				DEVELOPMENT_ASSET_PATHS = "\"Firebase_Tutorial_Swift/Preview Content\"";
+ 				DEVELOPMENT_TEAM = M78LSR622Z;
+ 				ENABLE_PREVIEWS = YES;
+ 				GENERATE_INFOPLIST_FILE = YES;
++				INFOPLIST_FILE = "Firebase-Tutorial-Swift-Info.plist";
+ 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+ 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+ 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+@@ -298,12 +381,14 @@
+ 			buildSettings = {
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
++				CODE_SIGN_ENTITLEMENTS = Firebase_Tutorial_Swift/Firebase_Tutorial_Swift.entitlements;
+ 				CODE_SIGN_STYLE = Automatic;
+ 				CURRENT_PROJECT_VERSION = 1;
+ 				DEVELOPMENT_ASSET_PATHS = "\"Firebase_Tutorial_Swift/Preview Content\"";
+ 				DEVELOPMENT_TEAM = M78LSR622Z;
+ 				ENABLE_PREVIEWS = YES;
+ 				GENERATE_INFOPLIST_FILE = YES;
++				INFOPLIST_FILE = "Firebase-Tutorial-Swift-Info.plist";
+ 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+ 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+ 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+@@ -344,6 +429,53 @@
+ 			defaultConfigurationName = Release;
+ 		};
+ /* End XCConfigurationList section */
++
++/* Begin XCRemoteSwiftPackageReference section */
++		ACE8F0092C91C165006E1755 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
++			isa = XCRemoteSwiftPackageReference;
++			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
++			requirement = {
++				kind = upToNextMajorVersion;
++				minimumVersion = 11.2.0;
++			};
++		};
++		ACE8F01B2C9264CA006E1755 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
++			isa = XCRemoteSwiftPackageReference;
++			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
++			requirement = {
++				kind = upToNextMajorVersion;
++				minimumVersion = 8.0.0;
++			};
++		};
++/* End XCRemoteSwiftPackageReference section */
++
++/* Begin XCSwiftPackageProductDependency section */
++		ACE8F00A2C91C165006E1755 /* FirebaseAnalytics */ = {
++			isa = XCSwiftPackageProductDependency;
++			package = ACE8F0092C91C165006E1755 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
++			productName = FirebaseAnalytics;
++		};
++		ACE8F00C2C91C165006E1755 /* FirebaseAnalyticsOnDeviceConversion */ = {
++			isa = XCSwiftPackageProductDependency;
++			package = ACE8F0092C91C165006E1755 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
++			productName = FirebaseAnalyticsOnDeviceConversion;
++		};
++		ACE8F00F2C91C42C006E1755 /* FirebaseAuth */ = {
++			isa = XCSwiftPackageProductDependency;
++			package = ACE8F0092C91C165006E1755 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
++			productName = FirebaseAuth;
++		};
++		ACE8F01C2C9264CA006E1755 /* GoogleSignIn */ = {
++			isa = XCSwiftPackageProductDependency;
++			package = ACE8F01B2C9264CA006E1755 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
++			productName = GoogleSignIn;
++		};
++		ACE8F01E2C9264CA006E1755 /* GoogleSignInSwift */ = {
++			isa = XCSwiftPackageProductDependency;
++			package = ACE8F01B2C9264CA006E1755 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
++			productName = GoogleSignInSwift;
++		};
++/* End XCSwiftPackageProductDependency section */
+ 	};
+ 	rootObject = ACE8EFEE2C91BE8B006E1755 /* Project object */;
+ }
+diff --git a/Firebase_Tutorial_Swift.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved b/Firebase_Tutorial_Swift.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+new file mode 100644
+index 0000000..e9db0bd
+--- /dev/null
++++ b/Firebase_Tutorial_Swift.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+@@ -0,0 +1,150 @@
++{
++  "originHash" : "7ed78cec4688813732ed048994a6c24c5c081e333197fce4007040cea0ee7d0c",
++  "pins" : [
++    {
++      "identity" : "abseil-cpp-binary",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/google/abseil-cpp-binary.git",
++      "state" : {
++        "revision" : "194a6706acbd25e4ef639bcaddea16e8758a3e27",
++        "version" : "1.2024011602.0"
++      }
++    },
++    {
++      "identity" : "app-check",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/google/app-check.git",
++      "state" : {
++        "revision" : "21fe1af9be463a359aaf8d96789ef73fc3760d09",
++        "version" : "11.0.1"
++      }
++    },
++    {
++      "identity" : "appauth-ios",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/openid/AppAuth-iOS.git",
++      "state" : {
++        "revision" : "c89ed571ae140f8eb1142735e6e23d7bb8c34cb2",
++        "version" : "1.7.5"
++      }
++    },
++    {
++      "identity" : "firebase-ios-sdk",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/firebase/firebase-ios-sdk",
++      "state" : {
++        "revision" : "1fc52ab0e172e7c5a961f975a76c2611f4f22852",
++        "version" : "11.2.0"
++      }
++    },
++    {
++      "identity" : "googleappmeasurement",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/google/GoogleAppMeasurement.git",
++      "state" : {
++        "revision" : "07a2f57d147d2bf368a0d2dcb5579ff082d9e44f",
++        "version" : "11.1.0"
++      }
++    },
++    {
++      "identity" : "googledatatransport",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/google/GoogleDataTransport.git",
++      "state" : {
++        "revision" : "617af071af9aa1d6a091d59a202910ac482128f9",
++        "version" : "10.1.0"
++      }
++    },
++    {
++      "identity" : "googlesignin-ios",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/google/GoogleSignIn-iOS",
++      "state" : {
++        "revision" : "65fb3f1aa6ffbfdc79c4e22178a55cd91561f5e9",
++        "version" : "8.0.0"
++      }
++    },
++    {
++      "identity" : "googleutilities",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/google/GoogleUtilities.git",
++      "state" : {
++        "revision" : "53156c7ec267db846e6b64c9f4c4e31ba4cf75eb",
++        "version" : "8.0.2"
++      }
++    },
++    {
++      "identity" : "grpc-binary",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/google/grpc-binary.git",
++      "state" : {
++        "revision" : "f56d8fc3162de9a498377c7b6cea43431f4f5083",
++        "version" : "1.65.1"
++      }
++    },
++    {
++      "identity" : "gtm-session-fetcher",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/google/gtm-session-fetcher.git",
++      "state" : {
++        "revision" : "a2ab612cb980066ee56d90d60d8462992c07f24b",
++        "version" : "3.5.0"
++      }
++    },
++    {
++      "identity" : "gtmappauth",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/google/GTMAppAuth.git",
++      "state" : {
++        "revision" : "5d7d66f647400952b1758b230e019b07c0b4b22a",
++        "version" : "4.1.1"
++      }
++    },
++    {
++      "identity" : "interop-ios-for-google-sdks",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/google/interop-ios-for-google-sdks.git",
++      "state" : {
++        "revision" : "2d12673670417654f08f5f90fdd62926dc3a2648",
++        "version" : "100.0.0"
++      }
++    },
++    {
++      "identity" : "leveldb",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/firebase/leveldb.git",
++      "state" : {
++        "revision" : "a0bc79961d7be727d258d33d5a6b2f1023270ba1",
++        "version" : "1.22.5"
++      }
++    },
++    {
++      "identity" : "nanopb",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/firebase/nanopb.git",
++      "state" : {
++        "revision" : "b7e1104502eca3a213b46303391ca4d3bc8ddec1",
++        "version" : "2.30910.0"
++      }
++    },
++    {
++      "identity" : "promises",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/google/promises.git",
++      "state" : {
++        "revision" : "540318ecedd63d883069ae7f1ed811a2df00b6ac",
++        "version" : "2.4.0"
++      }
++    },
++    {
++      "identity" : "swift-protobuf",
++      "kind" : "remoteSourceControl",
++      "location" : "https://github.com/apple/swift-protobuf.git",
++      "state" : {
++        "revision" : "edb6ed4919f7756157fe02f2552b7e3850a538e5",
++        "version" : "1.28.1"
++      }
++    }
++  ],
++  "version" : 3
++}
+diff --git a/Firebase_Tutorial_Swift.xcodeproj/xcuserdata/oskarbreitkopf.xcuserdatad/xcschemes/xcschememanagement.plist b/Firebase_Tutorial_Swift.xcodeproj/xcuserdata/oskarbreitkopf.xcuserdatad/xcschemes/xcschememanagement.plist
+index 30a0cdb..138c026 100644
+--- a/Firebase_Tutorial_Swift.xcodeproj/xcuserdata/oskarbreitkopf.xcuserdatad/xcschemes/xcschememanagement.plist
++++ b/Firebase_Tutorial_Swift.xcodeproj/xcuserdata/oskarbreitkopf.xcuserdatad/xcschemes/xcschememanagement.plist
+@@ -9,6 +9,27 @@
+ 			<key>orderHint</key>
+ 			<integer>0</integer>
+ 		</dict>
++		<key>Promises (Playground) 1.xcscheme</key>
++		<dict>
++			<key>isShown</key>
++			<false/>
++			<key>orderHint</key>
++			<integer>2</integer>
++		</dict>
++		<key>Promises (Playground) 2.xcscheme</key>
++		<dict>
++			<key>isShown</key>
++			<false/>
++			<key>orderHint</key>
++			<integer>3</integer>
++		</dict>
++		<key>Promises (Playground).xcscheme</key>
++		<dict>
++			<key>isShown</key>
++			<false/>
++			<key>orderHint</key>
++			<integer>1</integer>
++		</dict>
+ 	</dict>
+ </dict>
+ </plist>
+diff --git a/Firebase_Tutorial_Swift/AuthenticaionManager.swift b/Firebase_Tutorial_Swift/AuthenticaionManager.swift
+new file mode 100644
+index 0000000..2001842
+--- /dev/null
++++ b/Firebase_Tutorial_Swift/AuthenticaionManager.swift
+@@ -0,0 +1,134 @@
++//
++//  AuthenticaionManager.swift
++//  Firebase_Tutorial_Swift
++//
++//  Created by Oskar Breitkopf on 11.09.24.
++//
++
++import Foundation
++import FirebaseAuth
++import UIKit
++import SwiftUI
++import AuthenticationServices
++
++enum AuthProviderOption:String {
++    case email = "password"
++    case google = "google.com"
++    case apple = "apple.com"
++    
++}
++
++
++
++
++final class AuthenticationManager: NSObject {
++    
++    struct AuthDataResultModel {
++        let uid: String
++        let email: String?
++        let photoUrl: String?
++        
++        init(user: User) {
++            self.uid=user.uid
++            self.email=user.email
++            self.photoUrl=user.photoURL?.absoluteString
++        }
++    }
++    
++    static let shared = AuthenticationManager()
++    private override init() { // override
++        
++    }
++    // password
++    // google.com
++    
++    func getProvide() throws -> [AuthProviderOption] {
++        guard let providerData = Auth.auth().currentUser?.providerData else {
++            throw URLError(.badServerResponse)
++        }
++        
++        var providers: [AuthProviderOption]=[]
++        
++        for provider in providerData {
++            if let option=AuthProviderOption(rawValue: provider.providerID) {
++                
++            } else {
++                assertionFailure("Provider option not found: \(provider.providerID)")
++            }
++        }
++        
++        return providers
++    }
++
++    func getAuthenticatedUser() throws -> AuthDataResultModel {
++        guard let user=Auth.auth().currentUser else {
++            throw URLError(.badServerResponse)
++        }
++        return AuthDataResultModel(user: user)
++    }
++    
++    
++
++    
++    func signOut() {
++        try? Auth.auth().signOut()
++    }
++}
++// SignInEmail
++extension AuthenticationManager {
++    @discardableResult
++    func createUser(email:String, password: String) async throws -> AuthDataResultModel {
++        let AuthDataResult=try await Auth.auth().createUser(withEmail: email, password: password)
++        return AuthDataResultModel(user: AuthDataResult.user)
++    }
++    
++    func signInUser(email:String, password: String) async throws -> AuthDataResultModel {
++        let AuthDataResult=try await Auth.auth().signIn(withEmail: email, password: password)
++        return AuthDataResultModel(user:AuthDataResult.user)
++    }
++    
++    func resetPassword(email:String) async throws {
++        try await Auth.auth().sendPasswordReset(withEmail: email)
++    }
++    
++    func updatePassword(password:String) async throws {
++        guard let user = Auth.auth().currentUser else {
++            throw URLError(.badServerResponse)
++        }
++        try await user.updatePassword(to: password)
++        
++    }
++    
++    func updateEmail(email:String) async throws {
++        guard let user = Auth.auth().currentUser else {
++            throw URLError(.badServerResponse)
++        }
++        try await user.updateEmail(to: email)
++        
++    }
++}
++// SignInGoogle
++extension AuthenticationManager {
++    @discardableResult
++    func signInWithGoogle(tokens:GoogleSignInResultModel) async throws -> AuthDataResultModel {
++    
++        let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
++        return try await signInWithCredential(credential: credential)
++    }
++    
++    @discardableResult
++    func signInWithApple(tokens:SignInWithAppleResult) async throws -> AuthDataResultModel {
++        let credential=OAuthProvider.credential(withProviderID: AuthProviderOption.apple.rawValue, idToken: tokens.tokens, rawNonce: tokens.nonce)
++      //  let credential=OAuthProvider.appleCredential(withIDToken: tokens.tokens, rawNonce: tokens.nonce, fullName: try PersonNameComponents("Oskar Breitkopf"))
++        return try await signInWithCredential(credential: credential)
++    }
++    
++   
++    
++    func signInWithCredential(credential: AuthCredential) async throws -> AuthDataResultModel {
++        let authDataResult = try await Auth.auth().signIn(with: credential)
++        return AuthDataResultModel(user: authDataResult.user)
++    }
++    
++    
++}
+diff --git a/Firebase_Tutorial_Swift/AuthenticationView.swift b/Firebase_Tutorial_Swift/AuthenticationView.swift
+new file mode 100644
+index 0000000..d3ad2db
+--- /dev/null
++++ b/Firebase_Tutorial_Swift/AuthenticationView.swift
+@@ -0,0 +1,216 @@
++//
++//  AuthenticationView.swift
++//  Firebase_Tutorial_Swift
++//
++//  Created by Oskar Breitkopf on 11.09.24.
++//
++
++import SwiftUI
++import GoogleSignIn
++import GoogleSignInSwift
++import FirebaseAuth
++import AuthenticationServices
++import UIKit
++import CryptoKit
++
++
++struct SignInWithAppleButtonViewRepresentable: UIViewRepresentable {
++    
++    let type: ASAuthorizationAppleIDButton.ButtonType
++    let style: ASAuthorizationAppleIDButton.Style
++    
++    func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
++        return ASAuthorizationAppleIDButton(authorizationButtonType: type, authorizationButtonStyle: style)
++    }
++    
++    func updateUIView(_ uiView: ASAuthorizationAppleIDButton, context: Context) {
++        
++    }
++}
++
++@MainActor
++final class AuthenticationViewModel: NSObject, ObservableObject {
++    
++    private var currentNonce: String?
++    @Published var didSignInWithApple:Bool=false
++    
++    func signInGoogle() async throws {
++        let helper=SignInGoogleHelper()
++        let tokens = try await helper.signIn()
++        
++        try await AuthenticationManager.shared.signInWithGoogle(tokens:tokens)
++    }
++    
++    func signInApple() async throws {
++        startSignInWithAppleFlow()
++    }
++    
++    func startSignInWithAppleFlow() {
++        guard let topVC=Utilities.shared.topViewController() else {
++            return
++        }
++        
++      let nonce = randomNonceString()
++      currentNonce = nonce
++      let appleIDProvider = ASAuthorizationAppleIDProvider()
++      let request = appleIDProvider.createRequest()
++      request.requestedScopes = [.fullName, .email]
++      request.nonce = sha256(nonce)
++
++      let authorizationController = ASAuthorizationController(authorizationRequests: [request])
++      authorizationController.delegate = self
++      authorizationController.presentationContextProvider = topVC
++      authorizationController.performRequests()
++    }
++    
++    private func randomNonceString(length: Int = 32) -> String {
++      precondition(length > 0)
++      var randomBytes = [UInt8](repeating: 0, count: length)
++      let errorCode = SecRandomCopyBytes(kSecRandomDefault, randomBytes.count, &randomBytes)
++      if errorCode != errSecSuccess {
++        fatalError(
++          "Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)"
++        )
++      }
++
++      let charset: [Character] =
++        Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
++
++      let nonce = randomBytes.map { byte in
++        // Pick a random character from the set, wrapping around if needed.
++        charset[Int(byte) % charset.count]
++      }
++
++      return String(nonce)
++    }
++    
++    @available(iOS 13, *)
++    private func sha256(_ input: String) -> String {
++      let inputData = Data(input.utf8)
++      let hashedData = SHA256.hash(data: inputData)
++      let hashString = hashedData.compactMap {
++        String(format: "%02x", $0)
++      }.joined()
++
++      return hashString
++    }
++    
++}
++struct SignInWithAppleResult {
++    let tokens: String
++    let nonce: String
++}
++
++extension AuthenticationViewModel: ASAuthorizationControllerDelegate {
++
++    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
++        
++        guard
++            let appleIDCredential=authorization.credential as? ASAuthorizationAppleIDCredential,
++            let appleIDToken = appleIDCredential.identityToken,
++            let idTokenString = String(data: appleIDToken, encoding: .utf8),
++            let nonce=currentNonce else {
++            print("error")
++            return
++        }
++        let tokens=SignInWithAppleResult(tokens: idTokenString, nonce: nonce)
++            
++        Task {
++            do {
++                try await AuthenticationManager.shared.signInWithApple(tokens:tokens)
++                    print("This line 121 is reached")
++                    didSignInWithApple=true
++            } catch {
++                
++            }
++            
++        }
++
++        
++    }
++    
++    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
++        // Handle error.
++        print("Sign in with Apple errored: \(error)")
++    }
++    
++}
++
++
++extension UIViewController:ASAuthorizationControllerPresentationContextProviding {
++    public func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
++        return self.view.window!
++    }
++}
++
++struct AuthenticationView: View {
++    
++    @Binding var showSignInView: Bool
++    
++    @StateObject var viewModel=AuthenticationViewModel()
++    
++    var body: some View {
++        VStack {
++            Button {
++                print("Pressed")
++            } label: {
++                Text("Press")
++            }
++
++            NavigationLink {
++                SignInEmailView(showSignInView: $showSignInView)
++            } label: {
++                Text("Sign in With Email")
++                    .font(.headline)
++                    .foregroundColor(.white)
++                    .frame(height:55)
++                    .frame(maxWidth: .infinity)
++                    .background(Color.blue)
++                    .cornerRadius(10)
++            }
++            GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(scheme: .dark, style: .wide, state: .normal)) {
++                Task{
++                    do {
++                        try await viewModel.signInGoogle()
++                        showSignInView=false
++                    }
++                    catch {
++                        print(error)
++                    }
++                }
++                
++
++            }
++            Button {
++                Task{
++                    do {
++                        try await viewModel.signInApple()
++                       
++                    }
++                    catch {
++                        print(error)
++                    }
++                }
++            } label: {
++                SignInWithAppleButtonViewRepresentable(type: .default, style: .black)
++                    .allowsHitTesting(false)
++                    .frame(height:55)
++            }.onChange(of: viewModel.didSignInWithApple) {oldValue, newValue in
++                print(newValue)
++                if newValue {
++                    showSignInView=false
++                }
++            }
++
++            
++            
++            
++            
++            Spacer()
++        }
++        .padding()
++        .navigationTitle("Sign in")
++    }
++}
++
++
+diff --git a/Firebase_Tutorial_Swift/Firebase_Tutorial_Swift.entitlements b/Firebase_Tutorial_Swift/Firebase_Tutorial_Swift.entitlements
+new file mode 100644
+index 0000000..a812db5
+--- /dev/null
++++ b/Firebase_Tutorial_Swift/Firebase_Tutorial_Swift.entitlements
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
++<plist version="1.0">
++<dict>
++	<key>com.apple.developer.applesignin</key>
++	<array>
++		<string>Default</string>
++	</array>
++</dict>
++</plist>
+diff --git a/Firebase_Tutorial_Swift/Firebase_Tutorial_SwiftApp.swift b/Firebase_Tutorial_Swift/Firebase_Tutorial_SwiftApp.swift
+index bd4d90e..bd18e67 100644
+--- a/Firebase_Tutorial_Swift/Firebase_Tutorial_SwiftApp.swift
++++ b/Firebase_Tutorial_Swift/Firebase_Tutorial_SwiftApp.swift
+@@ -6,12 +6,27 @@
+ //
+ 
+ import SwiftUI
++import Firebase
+ 
+ @main
+ struct Firebase_Tutorial_SwiftApp: App {
++    
++    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
++    
+     var body: some Scene {
+         WindowGroup {
+-            ContentView()
++            RootView()
++            
+         }
+     }
+ }
++
++
++class AppDelegate: NSObject, UIApplicationDelegate {
++  func application(_ application: UIApplication,
++                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
++    FirebaseApp.configure()
++      print("Firebase was configured")
++    return true
++  }
++}
+diff --git a/Firebase_Tutorial_Swift/GoogleService-Info.plist b/Firebase_Tutorial_Swift/GoogleService-Info.plist
+new file mode 100644
+index 0000000..d9c8cfd
+--- /dev/null
++++ b/Firebase_Tutorial_Swift/GoogleService-Info.plist
+@@ -0,0 +1,32 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
++<plist version="1.0">
++<dict>
++	<key>API_KEY</key>
++	<string>AIzaSyCUrO_nAAqUJwz_WBSSzMAovhOf3BUgR7g</string>
++	<key>GCM_SENDER_ID</key>
++	<string>372856738637</string>
++	<key>PLIST_VERSION</key>
++	<string>1</string>
++	<key>BUNDLE_ID</key>
++	<string>osi09.Firebase-Tutorial-Swift</string>
++	<key>PROJECT_ID</key>
++	<string>quizrevoltfirebasetest</string>
++	<key>STORAGE_BUCKET</key>
++	<string>quizrevoltfirebasetest.appspot.com</string>
++	<key>IS_ADS_ENABLED</key>
++	<false></false>
++	<key>IS_ANALYTICS_ENABLED</key>
++	<false></false>
++	<key>IS_APPINVITE_ENABLED</key>
++	<true></true>
++	<key>IS_GCM_ENABLED</key>
++	<true></true>
++	<key>IS_SIGNIN_ENABLED</key>
++	<true></true>
++	<key>GOOGLE_APP_ID</key>
++	<string>1:372856738637:ios:19a65018de062238f95d04</string>
++	<key>DATABASE_URL</key>
++	<string>https://quizrevoltfirebasetest-default-rtdb.europe-west1.firebasedatabase.app</string>
++</dict>
++</plist>
+\ No newline at end of file
+diff --git a/Firebase_Tutorial_Swift/RootView.swift b/Firebase_Tutorial_Swift/RootView.swift
+new file mode 100644
+index 0000000..db2c021
+--- /dev/null
++++ b/Firebase_Tutorial_Swift/RootView.swift
+@@ -0,0 +1,33 @@
++//
++//  RootView.swift
++//  Firebase_Tutorial_Swift
++//
++//  Created by Oskar Breitkopf on 11.09.24.
++//
++
++import SwiftUI
++
++struct RootView: View {
++    
++    @State private var showSignInView = false
++    
++    
++    var body: some View {
++        ZStack {
++            if !showSignInView {
++                NavigationStack {
++                    SettingsView(showSignInView: $showSignInView)
++                }
++            }
++            
++        }
++
++        .fullScreenCover(isPresented: $showSignInView) {
++            NavigationStack {
++                AuthenticationView(showSignInView: $showSignInView)
++        }
++        }
++    }
++}
++
++
+diff --git a/Firebase_Tutorial_Swift/SettingsView.swift b/Firebase_Tutorial_Swift/SettingsView.swift
+new file mode 100644
+index 0000000..d3003ed
+--- /dev/null
++++ b/Firebase_Tutorial_Swift/SettingsView.swift
+@@ -0,0 +1,132 @@
++//
++//  SettingsView.swift
++//  Firebase_Tutorial_Swift
++//
++//  Created by Oskar Breitkopf on 11.09.24.
++//
++
++import SwiftUI
++
++@MainActor
++final class SettingsViewModel: ObservableObject {
++    
++    @Published var authProviders:[AuthProviderOption]=[]
++    
++    func loadAuthProviders() {
++        if let providers = try? AuthenticationManager.shared.getProvide(){
++            authProviders=providers
++        }
++    }
++    
++    func signOut() throws {
++       AuthenticationManager.shared.signOut()
++    }
++    
++    func resetPassword() async throws {
++        let authUser=try AuthenticationManager.shared.getAuthenticatedUser()
++        guard let email = authUser.email else{
++            throw URLError(.fileDoesNotExist)
++        }
++        
++        try await AuthenticationManager.shared.resetPassword(email: email)
++    }
++    
++    func updateEmail() async throws {
++        let email:String="hello@gmail.com"
++        try await AuthenticationManager.shared.updateEmail(email: email)
++    }
++    
++    func updatePassword() async throws {
++        let password:String="123456"
++        try await AuthenticationManager.shared.updatePassword(password: password)
++    }
++    
++}
++
++
++struct SettingsView: View {
++    
++    @StateObject private var viewModel = SettingsViewModel()
++    @Binding var showSignInView: Bool
++    var body: some View {
++        List {
++            Button("Log out") {
++                Task {
++                    do {
++                        try viewModel.signOut()
++                        showSignInView=true
++                            
++                        
++                        
++                    } catch {
++                        print(error)
++                    }
++                }
++            }
++            if viewModel.authProviders.contains(.email) {
++                emailSection
++            }
++            
++
++        }
++        .onAppear(perform: {
++            viewModel.loadAuthProviders()
++        })
++        .navigationTitle("Settings")
++    }
++}
++
++#Preview {
++    SettingsView(showSignInView: .constant(false))
++}
++
++
++extension SettingsView {
++    private var emailSection: some View {
++        Section {
++            Button("Reset password") {
++                Task {
++                    do {
++                        try await viewModel.resetPassword()
++                        print("Password was reset")
++                            
++                        
++                        
++                    } catch {
++                        print(error)
++                    }
++                }
++            }
++            
++            Button("Update password") {
++                Task {
++                    do {
++                        try await viewModel.updatePassword()
++                        print("Password was updated")
++                            
++                        
++                        
++                    } catch {
++                        print(error)
++                    }
++                }
++            }
++        
++            Button("Update email") {
++                Task {
++                    do {
++                        try await viewModel.updateEmail()
++                        print("Email was updated")
++                            
++                        
++                        
++                    } catch {
++                        print(error)
++                    }
++                }
++            }
++        } header: {
++            Text("Email functions")
++        }
++    }
++}
+diff --git a/Firebase_Tutorial_Swift/SignInEmailView.swift b/Firebase_Tutorial_Swift/SignInEmailView.swift
+new file mode 100644
+index 0000000..dc31b63
+--- /dev/null
++++ b/Firebase_Tutorial_Swift/SignInEmailView.swift
+@@ -0,0 +1,106 @@
++//
++//  SignInEmailView.swift
++//  Firebase_Tutorial_Swift
++//
++//  Created by Oskar Breitkopf on 11.09.24.
++//
++
++import SwiftUI
++
++@MainActor
++final class SignInEmailViewModel:ObservableObject {
++    
++    @Published var email=""
++    @Published var password=""
++    
++    
++    
++    func signUp() async throws {
++  
++        guard !email.isEmpty, !password.isEmpty else {
++            print("Pls enter a valid Email")
++            return
++        }
++        do {
++            try await AuthenticationManager.shared.createUser(email: email, password: password)
++            
++        }
++        
++    }
++    
++    func signIn() async throws {
++  
++        guard !email.isEmpty, !password.isEmpty else {
++            print("Pls enter a valid Email")
++            return
++        }
++        do {
++            try await AuthenticationManager.shared.signInUser(email: email, password: password)
++            
++        }
++        
++    }
++   
++}
++
++struct SignInEmailView: View {
++    
++    @StateObject private var viewModelE = SignInEmailViewModel()
++    
++    @Binding var showSignInView:Bool
++    
++    var body: some View {
++        VStack {
++            TextField("Email...", text: $viewModelE.email)
++                .padding()
++                .background(Color.gray.opacity(0.4))
++                .cornerRadius(10)
++            
++            SecureField("Password", text: $viewModelE.password)
++                .padding()
++                .background(Color.gray.opacity(0.4))
++                .cornerRadius(10)
++            
++            Button {
++                Task{
++                    do {
++                        try await viewModelE.signUp()
++                        showSignInView=false
++                        return
++                    }
++                    
++                    catch {
++                        print(error)
++                    }
++                    do {
++                        try await viewModelE.signIn()
++                        showSignInView=false
++                        return
++                    }
++                    
++                    catch {
++                        print(error)
++                    }
++                    
++                }
++                
++            } label: {
++                Text("Sign in")
++                    .font(.headline)
++                    .foregroundColor(.white)
++                    .frame(height:55)
++                    .frame(maxWidth: .infinity)
++                    .background(Color.blue)
++                    .cornerRadius(10)
++            }
++
++            Spacer()
++        }
++        .padding()
++        .navigationTitle("Sign In With Email")
++    }
++}
++
++#Preview {
++    SignInEmailView(showSignInView: .constant(false))
++}
+diff --git a/Firebase_Tutorial_Swift/SignInGoogleHelper.swift b/Firebase_Tutorial_Swift/SignInGoogleHelper.swift
+new file mode 100644
+index 0000000..f786677
+--- /dev/null
++++ b/Firebase_Tutorial_Swift/SignInGoogleHelper.swift
+@@ -0,0 +1,37 @@
++//
++//  SignInGoogleHelper.swift
++//  Firebase_Tutorial_Swift
++//
++//  Created by Oskar Breitkopf on 12.09.24.
++//
++
++import Foundation
++import GoogleSignIn
++import GoogleSignInSwift
++
++struct GoogleSignInResultModel {
++    let idToken: String
++    let accessToken:String
++    let name:String?
++    let email:String?
++}
++
++final class SignInGoogleHelper {
++    
++    @MainActor
++    func signIn() async throws -> GoogleSignInResultModel{
++        guard let topVC=Utilities.shared.topViewController() else {
++            throw URLError(.cannotFindHost)
++        }
++        let gidSignInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVC)
++        //GIDSignInResult.
++        
++        guard let idToken:String=gidSignInResult.user.idToken?.tokenString else { throw URLError(.badServerResponse)}
++        let accessToken:String=gidSignInResult.user.accessToken.tokenString
++        let name=gidSignInResult.user.profile?.name
++        let email=gidSignInResult.user.profile?.email
++        
++        let tokens=GoogleSignInResultModel(idToken: idToken, accessToken: accessToken, name: name, email: email)
++        return tokens
++    }
++}
+diff --git a/Firebase_Tutorial_Swift/Utilities/SignInAppleHelper.swift b/Firebase_Tutorial_Swift/Utilities/SignInAppleHelper.swift
+new file mode 100644
+index 0000000..60e6fee
+--- /dev/null
++++ b/Firebase_Tutorial_Swift/Utilities/SignInAppleHelper.swift
+@@ -0,0 +1,8 @@
++//
++//  SignInAppleHelper.swift
++//  Firebase_Tutorial_Swift
++//
++//  Created by Oskar Breitkopf on 13.09.24.
++//
++
++import Foundation
+diff --git a/Firebase_Tutorial_Swift/Utilities/Utilities.swift b/Firebase_Tutorial_Swift/Utilities/Utilities.swift
+new file mode 100644
+index 0000000..b19436c
+--- /dev/null
++++ b/Firebase_Tutorial_Swift/Utilities/Utilities.swift
+@@ -0,0 +1,35 @@
++//
++//  Utilities.swift
++//  Firebase_Tutorial_Swift
++//
++//  Created by Oskar Breitkopf on 12.09.24.
++//
++
++import Foundation
++import UIKit
++
++final class Utilities{
++    static let shared = Utilities()
++    
++    private init() {}
++    
++    func topViewController(controller: UIViewController? = nil) -> UIViewController? {
++        
++        let controller = controller ?? UIApplication.shared.keyWindow?.rootViewController
++        if let navigationController = controller as? UINavigationController {
++            return topViewController(controller: navigationController.visibleViewController)
++        }
++        if let tabController = controller as? UITabBarController {
++            if let selected = tabController.selectedViewController {
++                return topViewController(controller: selected)
++            }
++        }
++        if let presented = controller?.presentedViewController {
++            return topViewController(controller: presented)
++        }
++        return controller
++        
++    }
++        
++}
++
+diff --git a/Firebase_Tutorial_Swift/client_372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0.apps.googleusercontent.com.plist b/Firebase_Tutorial_Swift/client_372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0.apps.googleusercontent.com.plist
+new file mode 100644
+index 0000000..3d085f6
+--- /dev/null
++++ b/Firebase_Tutorial_Swift/client_372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0.apps.googleusercontent.com.plist
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
++<plist version="1.0">
++<dict>
++	<key>CLIENT_ID</key>
++	<string>372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0.apps.googleusercontent.com</string>
++	<key>REVERSED_CLIENT_ID</key>
++	<string>com.googleusercontent.apps.372856738637-q0fc3rsmrg6guu8i0djrrbitcubsomc0</string>
++	<key>PLIST_VERSION</key>
++	<string>1</string>
++	<key>BUNDLE_ID</key>
++	<string>osi09.Firebase-Tutorial-Swift</string>
++</dict>
++</plist>
+\ No newline at end of file
